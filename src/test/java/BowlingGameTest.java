@@ -14,16 +14,18 @@ public class BowlingGameTest extends TestCase {
     }
 
     public void testGutterGame(){
-        for(int i =0;i<20;i++){
-            game.roll(0);
-        }
+        rollMany(0, 20);
         assertEquals(0,game.getScore());
     }
 
     public void testAllOneGame(){
-        for(int i =0;i<20;i++){
-            game.roll(1);
-        }
+        rollMany(1, 20);
         assertEquals(20, game.getScore());
+    }
+
+    private void rollMany(int pins, int n) {
+        for (int i = 0; i < n; i++) {
+            game.roll(pins);
+        }
     }
 }

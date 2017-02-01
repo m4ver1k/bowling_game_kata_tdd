@@ -38,7 +38,12 @@ public class BowlingGameTest extends TestCase {
 
         assertEquals(26,game.getScore());
     }
-    
+
+    public void testPerfectGame(){
+        rollMany(10,20);
+
+        assertEquals(300,game.getScore());
+    }
     private void rollStrike() {
         game.roll(10);
     }

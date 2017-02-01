@@ -23,9 +23,34 @@ public class BowlingGameTest extends TestCase {
         assertEquals(20, game.getScore());
     }
 
+    public void testOneSpare(){
+        rollSpare();
+        game.roll(3);
+        rollMany(0,17);
+        assertEquals(16,game.getScore());
+    }
+
+    public void testOneStrike(){
+        rollStrike();
+        game.roll(4);
+        game.roll(4);
+        rollMany(0,17);
+
+        assertEquals(26,game.getScore());
+    }
+    
+    private void rollStrike() {
+        game.roll(10);
+    }
+
     private void rollMany(int pins, int n) {
         for (int i = 0; i < n; i++) {
             game.roll(pins);
         }
+    }
+
+    private void rollSpare(){
+        game.roll(5);
+        game.roll(5);
     }
 }

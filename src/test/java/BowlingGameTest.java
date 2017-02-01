@@ -15,11 +15,13 @@ public class BowlingGameTest extends TestCase {
 
     public void testGutterGame(){
         rollMany(0, 20);
+
         assertEquals(0,game.getScore());
     }
 
     public void testAllOneGame(){
         rollMany(1, 20);
+
         assertEquals(20, game.getScore());
     }
 
@@ -27,6 +29,7 @@ public class BowlingGameTest extends TestCase {
         rollSpare();
         game.roll(3);
         rollMany(0,17);
+
         assertEquals(16,game.getScore());
     }
 
